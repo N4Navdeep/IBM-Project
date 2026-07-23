@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>House Price Prediction</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="overlay">
+
+        <div class="glass-card">
+
+            <h1>🏡 House Price Prediction</h1>
+
+            <p>
+                Predict house prices using Machine Learning &
+                Ensemble Learning.
+            </p>
+
+            <form action="/predict" method="POST">
+
+                <div class="grid">
+
+                    <input
+                        type="number"
+                        name="area"
+                        placeholder="Area (sq ft)"
+                        required>
+
+                    <input
+                        type="number"
+                        name="bedrooms"
+                        placeholder="Bedrooms"
+                        required>
+
+                    <input
+                        type="number"
+                        name="bathrooms"
+                        placeholder="Bathrooms"
+                        required>
+
+                    <input
+                        type="number"
+                        name="floors"
+                        placeholder="Floors"
+                        required>
+
+                    <input
+                        type="number"
+                        name="year"
+                        placeholder="Year Built"
+                        required>
+
+                    <select name="location">
+
+                        <option value="Urban">Urban</option>
+                        <option value="Suburban">Suburban</option>
+                        <option value="Rural">Rural</option>
+
+                    </select>
+
+                    <select name="condition">
+
+                        <option value="Excellent">Excellent</option>
+                        <option value="Good">Good</option>
+                        <option value="Average">Average</option>
+
+                    </select>
+
+                    <select name="garage">
+
+                        <option value="Yes">Garage Available</option>
+                        <option value="No">No Garage</option>
+
+                    </select>
+
+                </div>
+
+                <button type="submit">
+                    Predict Price
+                </button>
+
+            </form>
+
+            {% if prediction %}
+
+            <div class="result">
+
+                <h2>Estimated Price</h2>
+
+                <h1>{{ prediction }}</h1>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

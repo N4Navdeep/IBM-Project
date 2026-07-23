@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    font-family: 'Poppins', sans-serif;
+
+    background:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+        url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=80");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    min-height: 100vh;
+}
+
+.overlay{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    min-height:100vh;
+
+    padding:40px;
+}
+
+.glass-card{
+
+    width:900px;
+
+    padding:45px;
+
+    border-radius:25px;
+
+    backdrop-filter:blur(18px);
+
+    background:rgba(255,255,255,.12);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    box-shadow:0 20px 50px rgba(0,0,0,.45);
+
+    color:white;
+
+    animation:fadeIn 1s ease;
+}
+
+.glass-card h1{
+
+    font-size:40px;
+
+    text-align:center;
+
+    margin-bottom:10px;
+}
+
+.glass-card p{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+    opacity:.9;
+}
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:18px;
+}
+
+input,
+select{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:15px;
+
+    outline:none;
+}
+
+button{
+
+    width:100%;
+
+    margin-top:30px;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:white;
+
+    background:linear-gradient(135deg,#00c6ff,#0072ff);
+
+    transition:.3s;
+}
+
+button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 25px rgba(0,114,255,.45);
+}
+
+.result{
+
+    margin-top:35px;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.18);
+
+    animation:pop .5s ease;
+}
+
+.result h2{
+
+    font-weight:400;
+
+    margin-bottom:12px;
+}
+
+.result h1{
+
+    font-size:40px;
+
+    color:#ffe082;
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+    }
+}
+
+@keyframes pop{
+
+    from{
+
+        transform:scale(.8);
+
+        opacity:0;
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+    }
+}
+
+@media(max-width:850px){
+
+    .glass-card{
+
+        width:100%;
+    }
+
+    .grid{
+
+        grid-template-columns:1fr;
+    }
+}
